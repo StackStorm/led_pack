@@ -1,0 +1,15 @@
+---
+    name: "switch_leds"
+    pack: "led_pack"
+    description: "Switch LEDs."
+    enabled: true
+
+    trigger:
+        type: "led_pack.switch_change"
+
+    action:
+        ref: "led_pack.set_leds"
+        parameters:
+            red: 100
+            green: 100
+            blue: 100

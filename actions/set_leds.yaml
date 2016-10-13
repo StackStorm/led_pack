@@ -1,0 +1,16 @@
+---
+name: set-leds
+description: Set LED state.
+runner_type: "run-python"
+entry_point: "set_leds.py"
+enabled: true
+parameters:
+  red:
+    description: "Intensity of red LEDs: 0-100%"
+    type: integer
+  green:
+    description: "Intensity of green LEDs: 0-100%"
+    type: integer
+  blue:
+    description: "Intensity of blue LEDs: 0-100%"
+    type: integer
