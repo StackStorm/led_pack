@@ -1,0 +1,17 @@
+---
+    name: "switch_leds"
+    pack: "led_pack"
+    description: "Switch LEDs."
+    enabled: true
+
+    trigger:
+        type: "led_pack.switch_change"
+
+    action:
+        ref: "led_pack.set-leds"
+        parameters:
+            is_on: "{{trigger.is_on}}"
+            change: "{{trigger.change}}"
+            red: "{{trigger.red}}"
+            green: "{{trigger.green}}"
+            blue: "{{trigger.blue}}"

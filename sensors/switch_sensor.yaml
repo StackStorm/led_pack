@@ -1,0 +1,14 @@
+---
+  class_name: "SwitchSensor"
+  entry_point: "switch_sensor.py"
+  description: "Sensor which monitors switch on raspberry pi for state changes."
+  poll_interval: 4
+  trigger_types:
+    -
+      name: "switch_change"
+      description: "Trigger which represents a state change in switch."
+      payload:
+          - "is_on"
+          - "red"
+          - "green"
+          - "blue"
