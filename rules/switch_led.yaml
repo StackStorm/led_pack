@@ -8,8 +8,10 @@
         type: "led_pack.switch_change"
 
     action:
-        ref: "led_pack.set_leds"
+        ref: "led_pack.set-leds"
         parameters:
-            red: 100
-            green: 100
-            blue: 100
+            is_on: "{{trigger.is_on}}"
+            change: "{{trigger.change}}"
+            red: "{{trigger.red}}"
+            green: "{{trigger.green}}"
+            blue: "{{trigger.blue}}"

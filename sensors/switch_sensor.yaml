@@ -7,3 +7,8 @@
     -
       name: "switch_change"
       description: "Trigger which represents a state change in switch."
+      payload:
+          - "is_on"
+          - "red"
+          - "green"
+          - "blue"

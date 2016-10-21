@@ -12,15 +12,39 @@ class SwitchSensor(PollingSensor):
         super(SwitchSensor, self).__init__(sensor_service=sensor_service,
                                            config=config,
                                            poll_interval=poll_interval)
-        self._trigger_ref = 'led_pack.switch_change'
+        self._switch_trigger = 'led_pack.switch_change'
         self._logger = self._sensor_service.get_logger(__name__)
+        self._prev_on = False
+
+    def _trigger(self, data):
+        self._sensor_service.dispatch(
+            trigger=self._switch_trigger,
+            payload=data
+        )
+
 
     def poll(self):
-        switch_request = requests.get('http://10.0.0.245:8080/switches/')
+        switch_request = requests.get('http://192.168.33.51:8080/switches/')
         switch_data = switch_request.json()
 
-        if switch_data['state_change']:
-            self._sensor_service.dispatch(trigger=self._trigger_ref)
+	if switch_data['is_on'] and switch_data['change']:
+            self._trigger(switch_data)
+
+	elif not self._prev_on and switch_data['is_on']:
+            switch_data['red'] = 100
+            switch_data['green'] = 100
+            switch_data['blue'] = 100
+
+            self._trigger(switch_data)
+
+	elif self._prev_on and not switch_data['is_on']:
+            switch_data['red'] = 0
+            switch_data['green'] = 0
+            switch_data['blue'] = 0
+
+            self._trigger(switch_data)
+
+        self._prev_on = switch_data['is_on']
 
     def add_trigger(self, trigger):
         pass

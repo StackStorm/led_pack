@@ -5,6 +5,12 @@ runner_type: "run-python"
 entry_point: "set_leds.py"
 enabled: true
 parameters:
+  change:
+    description: "Change LEDs to new color?"
+    type: boolean
+  is_on:
+    description: "Is the LED switch on?"
+    type: boolean
   red:
     description: "Intensity of red LEDs: 0-100%"
     type: integer
