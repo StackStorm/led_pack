@@ -1,0 +1,22 @@
+name: flash_leds_via_twitter
+pack: led_pack
+description: Flash the LEDs via tweets.
+enabled: true
+
+trigger:
+    type: twitter.stream_matched_tweet
+
+criteria:
+    trigger.text:
+        type: "icontains"
+        pattern : "Stack_Storm"
+    trigger.text:
+        type: "icontains"
+        pattern : "OpenStack"
+    trigger.text:
+        type: "icontains"
+        pattern : "awesome"
+
+action:
+    ref: led_pack.flash-leds
+    parameters: {}
