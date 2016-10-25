@@ -1,0 +1,14 @@
+name: flash-leds
+description: Flash LEDs
+runner_type: mistral-v2
+enabled: true
+entry_point: workflows/flash_leds.yaml
+parameters:
+    count:
+        type: integer
+        description: Number of times to cycle leds on and off
+        default: 10
+    workflow:
+        default: led_pack.flash-leds.main
+        immutable: true
+        type: string

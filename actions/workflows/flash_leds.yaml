@@ -1,0 +1,35 @@
+version: '2.0'
+name: led_pack.flash-leds
+description: Flash LEDs
+
+workflows:
+    main:
+        type: direct
+        input:
+            - count
+        tasks:
+            flashes:
+                with-items: i in <% list(range(0, $.count)) %> 
+                workflow: flash
+ 
+    flash:
+        type: direct
+        tasks:
+            set_on:
+                action: led_pack.set-leds
+                input:
+                    is_on: true
+                    change: true
+                    red: 100
+                    green: 100
+                    blue: 100
+                on-complete:
+                    - set_off
+            set_off:
+                action: led_pack.set-leds
+                input:
+                    is_on: true
+                    change: true
+                    red: 0
+                    green: 0
+                    blue: 0
