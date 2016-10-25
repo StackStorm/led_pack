@@ -10,7 +10,18 @@ workflows:
         tasks:
             flashes:
                 with-items: i in <% list(range(0, $.count)) %> 
+                concurrency: 1
                 workflow: flash
+                on-complete:
+                    - reset
+            reset:
+                action: led_pack.set-leds
+                input:
+                    is_on: true
+                    change: true
+                    red: 100
+                    green: 40
+                    blue: 0
  
     flash:
         type: direct
