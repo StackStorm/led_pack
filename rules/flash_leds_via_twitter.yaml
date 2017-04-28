@@ -12,10 +12,10 @@ criteria:
         pattern : "Stack_Storm"
     trigger.text:
         type: "icontains"
-        pattern : "OpenStack"
+        pattern : "serverless"
     trigger.text:
         type: "icontains"
-        pattern : "awesome"
+        pattern : "serverlessconf"
 
 action:
     ref: led_pack.flash-leds

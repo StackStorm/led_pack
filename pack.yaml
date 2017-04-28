@@ -1,6 +1,6 @@
 ---
-name : led_control
+name : led_pack
 description : Pack for controling LEDs on rPI.
-version : 0.1
+version : 0.1.0
 author : st2-dev
 email : info@stackstorm.com

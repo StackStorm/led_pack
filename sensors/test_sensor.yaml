@@ -1,0 +1,11 @@
+---
+  class_name: "TestSensor"
+  entry_point: "test_sensor.py"
+  description: "Sensor that monitors KVP to see if it exists"
+  poll_interval: 4
+  trigger_types:
+    -
+      name: "kvp_change"
+      description: "Trigger when kvp changes."
+      payload:
+          - "value"

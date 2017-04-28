@@ -19,9 +19,9 @@ workflows:
                 input:
                     is_on: true
                     change: true
-                    red: 100
-                    green: 40
-                    blue: 0
+                    red: 0
+                    green: 0
+                    blue: 100
  
     flash:
         type: direct

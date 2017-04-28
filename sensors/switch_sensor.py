@@ -24,7 +24,7 @@ class SwitchSensor(PollingSensor):
 
 
     def poll(self):
-        switch_request = requests.get('http://192.168.33.51:8080/switches/')
+        switch_request = requests.get('http://192.168.33.10:8080/switches/')
         switch_data = switch_request.json()
 
 	if switch_data['is_on'] and switch_data['change']:
