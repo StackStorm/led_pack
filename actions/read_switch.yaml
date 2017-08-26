@@ -1,0 +1,14 @@
+name: read_switch
+pack: led_pack
+description: Read switch R-Pi configuration
+runner_type: http-request
+entry_point: ''
+parameters:
+  method:
+    default: GET
+    immutable: true
+  url:
+    default: "{{config_context.switch_controller}}"
+    required: false
+    type: string
+    immutable: true
