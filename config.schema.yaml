@@ -1,0 +1,11 @@
+---
+  switch_controller:
+    description: "Switch controller endpoint"
+    type: "string"
+    default: "http://192.168.33.10:8080//switches/"
+    required: true
+  led_controller:
+    description: "Led controller endpoint"
+    type: "string"
+    required: true
+    default: "http://192.168.33.11:8080/leds/"
