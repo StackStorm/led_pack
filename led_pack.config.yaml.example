@@ -1,0 +1,5 @@
+---
+# IP or hostname of led controller
+led_controller: "http://172.16.1.201:8080/leds/"
+# IP or hostname of led controller
+switch_controller: "http://172.16.1.200:8080/switches/"

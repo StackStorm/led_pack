@@ -15,7 +15,7 @@ class SetLEDs(Action):
                 "green": green,
                 "blue": blue
             }
-            requests.post("http://192.168.33.11:8080/leds/", json=led_state)
+            return requests.post(self.config['led_controller'], json=led_state).json()
 
         if not is_on:
             led_state = {
@@ -23,4 +23,4 @@ class SetLEDs(Action):
                 "green": 0,
                 "blue": 0
             }
-            requests.post("http://192.168.33.11:8080/leds/", json=led_state)
+            return requests.post(self.config['led_controller'], json=led_state).json()

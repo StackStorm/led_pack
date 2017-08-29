@@ -1,0 +1,14 @@
+name: read-leds
+pack: led_pack
+description: Read led controller current color settings
+runner_type: http-request
+entry_point: ''
+parameters:
+  method:
+    default: GET
+    immutable: true
+  url:
+    default: "{{config_context.led_controller}}"
+    required: false
+    type: string
+    immutable: true
