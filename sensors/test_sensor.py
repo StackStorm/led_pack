@@ -20,7 +20,7 @@ class TestSensor(PollingSensor):
         )
 
     def poll(self):
-        self._logger.info('Ran once')
+        self._logger.debug('Ran once')
         kvp_value = self._sensor_service.get_value('kvp_test.kvp', local=False)
         if kvp_value:
             self._logger.info('KVP Value: %s' % (kvp_value))
@@ -29,7 +29,7 @@ class TestSensor(PollingSensor):
             }
             self._trigger(data)
         else:
-            self._logger.info('No KVP Value.')
+            self._logger.debug('No KVP Value.')
 
     def add_trigger(self, trigger):
         pass
