@@ -12,10 +12,7 @@ criteria:
         pattern : "Stack_Storm"
     trigger.text:
         type: "icontains"
-        pattern : "serverless"
-    trigger.text:
-        type: "icontains"
-        pattern : "serverlessconf"
+        pattern : "SREcon"
 
 action:
     ref: led_pack.flash-leds
