@@ -1,0 +1,21 @@
+name: led_random_color_on_tweet
+pack: led_pack
+description: Flash the LEDs with random color when there is a new Tweet matching the string.
+enabled: true
+
+trigger:
+    type: twitter.stream_matched_tweet
+
+criteria:
+    trigger.text:
+        type: "icontains"
+        pattern : "srecon"
+
+action:
+    ref: led_pack.flash-leds
+    parameters:
+        change: True
+        is_on: True
+        red: "{{ range(0, 100) | random }}"
+        green: "{{ range(0, 100) | random }}"
+        blue: "{{ range(0, 100) | random }}"
